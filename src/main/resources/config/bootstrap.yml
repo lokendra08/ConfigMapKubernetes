@@ -1,0 +1,17 @@
+management:
+  endpoint:
+    restart:
+      enabled: true #Mandatory for refresh of beans to happen
+spring:
+  application:
+    name: ConfigMapDemo
+  cloud:
+    kubernetes:
+      config:
+        name: configmapdemo
+        namespace: default
+        sources:
+          - name: configmapdemo
+      reload:
+        enabled: true #Enable the reload capability
+        mode: event #Alternatively we can use "polling"
